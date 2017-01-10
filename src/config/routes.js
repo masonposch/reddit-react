@@ -1,21 +1,21 @@
-import React from ('react');
+import React from 'react';
 
-import {IndexRoute, Route, Router, hashHistory} from 'react-router';
+import { IndexRoute, Route, Router, hashHistory } from 'react-router';
 
 import Main from '../components/Main';
 
-import Listing from '../components/sub/Listing';
-
-module.exports = {
+import Listing from '../components/subs/Listing';
+ 
+module.exports = (
 	<Router history = {hashHistory}>
 	
 		<Route path = '/' component={Main}>
 
-			<Route path = '/:subId' component = {Listing}/>
+			<Route path = '/:subId' component = {Listing} />
 
-			<IndexRoute compnent = {Listing}/>
-
+			<IndexRoute component = {Listing} />
+ 
 		</Route>
 
 	</Router>
-}
+);
