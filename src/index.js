@@ -7,4 +7,4 @@ import Routes from './config/routes';
 import Main from './components/Main';
 
 
-ReactDOM.render(routes, document.getElementById('app'));
+ReactDOM.render(Routes, document.getElementById('app'));
