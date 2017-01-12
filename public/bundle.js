@@ -28714,7 +28714,7 @@
 /* 268 */
 /***/ function(module, exports, __webpack_require__) {
 
-	"use strict";
+	'use strict';
 
 	Object.defineProperty(exports, "__esModule", {
 		value: true
@@ -28744,37 +28744,34 @@
 		}
 
 		_createClass(Form, [{
-			key: "render",
+			key: 'handleLogin',
+			value: function handleLogin() {
+				console.log('Clicked');
+			}
+		}, {
+			key: 'render',
 			value: function render() {
 				return _react2.default.createElement(
-					"div",
+					'div',
 					null,
 					_react2.default.createElement(
-						"panel",
-						null,
+						'form',
+						{ onSubmit: this.handleLogin },
 						_react2.default.createElement(
-							"panel-header",
+							'h2',
 							null,
-							_react2.default.createElement(
-								"h2",
-								null,
-								"Create a new post"
-							)
+							'Create a new post'
 						),
+						_react2.default.createElement('input', { type: 'text', placeholder: 'Title' }),
+						_react2.default.createElement('br', null),
+						_react2.default.createElement('input', { type: 'text', placeholder: 'Subreddit' }),
+						_react2.default.createElement('br', null),
+						_react2.default.createElement('input', { type: 'textbox', placeholder: 'Your Content Here' }),
+						_react2.default.createElement('br', null),
 						_react2.default.createElement(
-							"panel-body",
-							null,
-							_react2.default.createElement("input", { type: "text", placeholder: "Title" }),
-							_react2.default.createElement("br", null),
-							_react2.default.createElement("input", { type: "text", placeholder: "Subreddit" }),
-							_react2.default.createElement("br", null),
-							_react2.default.createElement("input", { type: "textbox", placeholder: "Your Content Here" }),
-							_react2.default.createElement("br", null),
-							_react2.default.createElement(
-								"button",
-								{ className: "btn btn-primary" },
-								"Add new post"
-							)
+							'button',
+							{ className: 'btn btn-primary' },
+							'Add new post'
 						)
 					)
 				);
