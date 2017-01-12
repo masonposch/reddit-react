@@ -28737,16 +28737,30 @@
 	var Form = function (_React$Component) {
 		_inherits(Form, _React$Component);
 
-		function Form() {
+		function Form(props) {
 			_classCallCheck(this, Form);
 
-			return _possibleConstructorReturn(this, (Form.__proto__ || Object.getPrototypeOf(Form)).apply(this, arguments));
+			var _this = _possibleConstructorReturn(this, (Form.__proto__ || Object.getPrototypeOf(Form)).call(this, props));
+
+			_this.state = { value: '' };
+
+			_this.handleChange = _this.handleChange.bind(_this);
+			_this.handleSubmit = _this.handleSubmit.bind(_this);
+			return _this;
 		}
 
 		_createClass(Form, [{
-			key: 'handleLogin',
-			value: function handleLogin() {
-				console.log('Clicked');
+			key: 'handleChange',
+			value: function handleChange(event) {
+				this.setState({ value: event.target.title });
+				this.setState({ value: event.target.subreddit });
+				this.setState({ value: event.target.textbox });
+			}
+		}, {
+			key: 'handleSubmit',
+			value: function handleSubmit() {
+				alert('A new post was submitted');
+				event.preventDefault();
 			}
 		}, {
 			key: 'render',
@@ -28756,17 +28770,17 @@
 					null,
 					_react2.default.createElement(
 						'form',
-						{ onSubmit: this.handleLogin },
+						{ onSubmit: this.handleSubmit },
 						_react2.default.createElement(
 							'h2',
 							null,
 							'Create a new post'
 						),
-						_react2.default.createElement('input', { type: 'text', placeholder: 'Title' }),
+						_react2.default.createElement('input', { type: 'text', name: 'title', placeholder: 'Title', value: this.state.title, onChange: this.handleChange }),
 						_react2.default.createElement('br', null),
-						_react2.default.createElement('input', { type: 'text', placeholder: 'Subreddit' }),
+						_react2.default.createElement('input', { type: 'text', name: 'subreddit', placeholder: 'Subreddit', value: this.state.subreddit, onChange: this.handleChange }),
 						_react2.default.createElement('br', null),
-						_react2.default.createElement('input', { type: 'textbox', placeholder: 'Your Content Here' }),
+						_react2.default.createElement('input', { type: 'textbox', name: 'textbox', placeholder: 'Your Content Here', value: this.state.textbox, onChange: this.handleChange }),
 						_react2.default.createElement('br', null),
 						_react2.default.createElement(
 							'button',
