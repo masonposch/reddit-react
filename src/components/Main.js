@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 
+import Form from './pageElements/form';
+
 export default class Main extends Component {
 	render(){
 
@@ -7,8 +9,14 @@ export default class Main extends Component {
 			<div className="container">
 				
 				<div className="jumbotron">
-					<h1>Reddit Rebuild</h1>	
+					<h1 className="text-center">Reddit Rebuild</h1>	
 				</div>
+
+				
+				
+					<Form />
+				
+
 
 				<div className="row">
 					{this.props.children}

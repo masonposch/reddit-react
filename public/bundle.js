@@ -27078,7 +27078,7 @@
 /* 240 */
 /***/ function(module, exports, __webpack_require__) {
 
-	"use strict";
+	'use strict';
 
 	Object.defineProperty(exports, "__esModule", {
 		value: true
@@ -27089,6 +27089,10 @@
 	var _react = __webpack_require__(1);
 
 	var _react2 = _interopRequireDefault(_react);
+
+	var _form = __webpack_require__(268);
+
+	var _form2 = _interopRequireDefault(_form);
 
 	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
 
@@ -27108,24 +27112,25 @@
 		}
 
 		_createClass(Main, [{
-			key: "render",
+			key: 'render',
 			value: function render() {
 
 				return _react2.default.createElement(
-					"div",
-					{ className: "container" },
+					'div',
+					{ className: 'container' },
 					_react2.default.createElement(
-						"div",
-						{ className: "jumbotron" },
+						'div',
+						{ className: 'jumbotron' },
 						_react2.default.createElement(
-							"h1",
-							null,
-							"Reddit Rebuild"
+							'h1',
+							{ className: 'text-center' },
+							'Reddit Rebuild'
 						)
 					),
+					_react2.default.createElement(_form2.default, null),
 					_react2.default.createElement(
-						"div",
-						{ className: "row" },
+						'div',
+						{ className: 'row' },
 						this.props.children
 					)
 				);
@@ -28704,6 +28709,82 @@
 	}(_react.Component);
 
 	exports.default = ListItem;
+
+/***/ },
+/* 268 */
+/***/ function(module, exports, __webpack_require__) {
+
+	"use strict";
+
+	Object.defineProperty(exports, "__esModule", {
+		value: true
+	});
+
+	var _createClass = function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; }();
+
+	var _react = __webpack_require__(1);
+
+	var _react2 = _interopRequireDefault(_react);
+
+	function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+	function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+	function _possibleConstructorReturn(self, call) { if (!self) { throw new ReferenceError("this hasn't been initialised - super() hasn't been called"); } return call && (typeof call === "object" || typeof call === "function") ? call : self; }
+
+	function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+	var Form = function (_React$Component) {
+		_inherits(Form, _React$Component);
+
+		function Form() {
+			_classCallCheck(this, Form);
+
+			return _possibleConstructorReturn(this, (Form.__proto__ || Object.getPrototypeOf(Form)).apply(this, arguments));
+		}
+
+		_createClass(Form, [{
+			key: "render",
+			value: function render() {
+				return _react2.default.createElement(
+					"div",
+					null,
+					_react2.default.createElement(
+						"panel",
+						null,
+						_react2.default.createElement(
+							"panel-header",
+							null,
+							_react2.default.createElement(
+								"h2",
+								null,
+								"Create a new post"
+							)
+						),
+						_react2.default.createElement(
+							"panel-body",
+							null,
+							_react2.default.createElement("input", { type: "text", placeholder: "Title" }),
+							_react2.default.createElement("br", null),
+							_react2.default.createElement("input", { type: "text", placeholder: "Subreddit" }),
+							_react2.default.createElement("br", null),
+							_react2.default.createElement("input", { type: "textbox", placeholder: "Your Content Here" }),
+							_react2.default.createElement("br", null),
+							_react2.default.createElement(
+								"button",
+								{ className: "btn btn-primary" },
+								"Add new post"
+							)
+						)
+					)
+				);
+			}
+		}]);
+
+		return Form;
+	}(_react2.default.Component);
+
+	exports.default = Form;
 
 /***/ }
 /******/ ]);

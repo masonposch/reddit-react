@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 
 const app = express();
 
-const posts = require('./api/posts');
+const posts = require('./api/models/post');
 
 const PORT = process.env.PORT || 3000;
 
