@@ -1,14 +1,17 @@
 import React, { Component } from 'react';
 
-import Form from './children/form';
+import Form from './utils/form';
 
+import ListItem from './subs/ListItem';
 import Listing from './subs/Listing';
+
+import helpers from './utils/helpers';
 
 var Main = React.createClass({
 
 	//Set the inital state of Main
 	getInitialState: function(){
-		return { searchTerm: "", results: results, title: [], subreddit: [], content: []};
+		return { searchTerm: "", title: [], subreddit: [], content: []};
 	},
 
 	//When the page renders, get all current entries

@@ -1,5 +1,5 @@
 const express = require('express');
-const bodyParser = require('body-parse');
+const bodyParser = require('body-parser');
 const logger = require('morgan');
 const mongoose = require('mongoose');
 
@@ -19,7 +19,7 @@ app.use(bodyParser.json({ type: "application/vnd.api+json" }));
 
 app.use(express.static("./public"));
 
-app.use('/posts', posts);
+// app.use('/posts', posts);
 
 mongoose.connect('mongodb://localhost/reddit');
 var db = mongoose.connection;
@@ -65,7 +65,6 @@ app.post('/api', function(req, res){
 			else {
 				res.send("Saved search");
 			}
-		}
 	});
 }); 
 
