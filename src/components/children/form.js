@@ -2,14 +2,18 @@ import React from 'react';
 
 export default class Form extends React.Component {
 
+	//Generic state is set on load
 	getInitialState(props){
 		return { term: "" };
 	}
 
+	//Responds to user input
 	handleChange(event){
 		this.setState({ value: event.target.value });
 	}
 
+
+	//Sends the set search term to the parent
 	handleSubmit(){
 		alert('A new post was submitted');
 		event.preventDefault();

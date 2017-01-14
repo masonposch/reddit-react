@@ -1,9 +1,51 @@
 import React, { Component } from 'react';
 
-import Form from './utils/form';
+import Form from './children/form';
 
-export default class Main extends Component {
-	render(){
+import Listing from './subs/Listing';
+
+var Main = React.createClass({
+
+	//Set the inital state of Main
+	getInitialState: function(){
+		return { searchTerm: "", results: results, title: [], subreddit: [], content: []};
+	},
+
+	//When the page renders, get all current entries
+	conponentDidMount: function() {
+
+		helpers.getInformation().then(function(response){
+			console.log(response);
+			if(response !== this.state.listing){
+				console.log("Listing", response.data);
+				this.setState({ listing: response.data });
+			}
+		}.bind(this));
+	},
+
+	//Whenever a search is entered, retrieve each entry
+	componentDidUpdate: function(){
+		helpers.postInformation(this.state.searchTerm).then(function(){
+			console.log("Updated");
+
+			helpers.getInformation().then(function(response){
+				console.log("Current Entries: ", response.data);
+
+				console.log("Listing", response.data);
+
+				this.setState({ listing: response.data });
+			}).bind(this)
+		}).bind(this)
+	},
+
+
+
+	//Create a function that allows children to pass information to their parent
+	setTerm: function(term){
+		this.setState({ searchTerm: term });
+	},
+
+	render(){	
 
 		return(
 			<div className="container">
@@ -13,17 +55,19 @@ export default class Main extends Component {
 				</div>
 
 				
-				
-					<Form />
-				
+				<div>
+					<Form setTerm={this.setTerm}/>
+				</div>
 
 
 				<div className="row">
-					{this.props.children}
+					<Listing setTerm={this.props.children}/>
 				</div>
 
 			</div>
 		)
 
 	}
-}
+});
+
+module.exports = Main;
